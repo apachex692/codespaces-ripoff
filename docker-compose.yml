@@ -1,0 +1,15 @@
+services:
+  code-server:
+    image: codeserver-${DOCKER_STACK}:latest
+    container_name: ${DOCKER_STACK}
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kolkata
+      - PASSWORD=${DOCKER_PASSWORD}
+      - SUDO_PASSWORD=${DOCKER_SUDO_PASSWORD}
+      - DEFAULT_WORKSPACE=/config/workspace/
+    volumes:
+      - ${DOCKER_PROJECT_ROOT_PATH}:/config/workspace/
+    restart: unless-stopped
+    network_mode: host

@@ -31,3 +31,18 @@ docker compose up -d
 ```
 
 Once you open the web interface, to install extensions, you can either use the "Extensions" sidebar or use the `install-extensions` command that comes with this image.
+
+
+## Markdown Editor
+
+For Markdown too, I use VS Code on browser. It has a separate Dockerfile because the base image doesn't require much modification. You can run the container as follows:
+
+```bash
+docker compose -f ./docker-compose-plain.yml up -d
+```
+
+From the command pallete, open the user settings JSON file and paste the contents of `./vscode/settings.json` file.
+
+## .NET with LinuxServer's Code Server
+
+I've found that some extensions are not supported in the open source version of VS Code Server. Hence, I'm removing support for .NET toolkit alone. I have a separate compose (dotnet-mysql-vscode) where I setup this with VS Code CLI.
